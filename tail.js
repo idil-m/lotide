@@ -11,7 +11,7 @@ const assertEqual = function (actual, expected) {
 
 
 
-const tail = function (arr) {
+const tail = function (arsr) {
   return arr.slice(1)
 }
 
