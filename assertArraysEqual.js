@@ -1,10 +1,10 @@
-const eqArrays = function (arrayOne, arrayTwo) {
-  let setOne = arrayOne
-  let setTwo = arrayTwo
+const eqArrays = function (arrayActual, arrayExpected) {
+  let setOne = arrayActual
+  let setTwo = arrayExpected
   if (setOne.length > setTwo.length || setTwo.length > setOne) {
     return false
   }
-  for (let i = 0; i < arrayOne.length; i++) {
+  for (let i = 0; i < arrayActual.length; i++) {
 
 
     if (setTwo[i] !== setOne[i]) {
@@ -17,14 +17,14 @@ const eqArrays = function (arrayOne, arrayTwo) {
 };
 
 
-const assertArraysEqual = function (arrayOne, arrayTwo) {
+const assertArraysEqual = function (arrayActual, arrayExpected) {
 
-  if (eqArrays(arrayOne, arrayTwo)) {
-    console.log(`✅✅✅ Assertion Passed:${arrayOne} === ${arrayTwo}`);
+  if (eqArrays(arrayActual, arrayExpected)) {
+    console.log(`✅✅✅ Assertion Passed:${arrayActual} === ${arrayExpected}`);
 
   }
   else {
-    console.log(`🟥🟥🟥 Assertion Failed:${arrayOne} !== ${arrayTwo}`);
+    console.log(`🟥🟥🟥 Assertion Failed:${arrayActual} !== ${arrayExpected}`);
   }
 };
 
