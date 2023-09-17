@@ -1,6 +1,9 @@
 const eqArrays = function (arrayOne, arrayTwo) {
   let setOne = arrayOne
   let setTwo = arrayTwo
+  if (arrayOne.length == 0 && arrayTwo.length == 0){
+    return true
+  }
   if (setOne.length > setTwo.length || setTwo.length > setOne) {
     return false
   }
