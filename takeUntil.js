@@ -28,25 +28,30 @@ const assertArraysEqual = function (arrayOne, arrayTwo) {
   }
 };
 
-const without = function (source, itemsToRemove) {
-  let results = []
-  for (const element of source){
-    if (!itemsToRemove.includes(element)) {
-      results.push(element)
-    }
+const takeUntil = function(array, callback) {
+  
+  for(let i = 0; i < array.length; i++){
+    if(callback(array[i])){
+      return array.slice(0,i)
+    } 
   }
-  return results
 }
-console.log(without([1, 2, 3], [1, 2]))
 
 
 
 
 
-// TEST: DO NOT MODIFY ORGINAL ARRAY
-//const words = ["hello", "world", "lighthouse"];
-//without(words, ["lighthouse"]); // no need to capture return value for this test case
-// Make sure the original array was not altered by the without function
-//assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];//[ 1, 2, 5, 7, 2 ]
+const results1 = takeUntil(data1, test);
+assertArraysEqual(results1,[ 1, 2, 5, 7, 2 ]);
 
+console.log('---');
 
+const data2 = ["I've", "been", "to", "Hollywood", ",", "I've", "been", "to", "Redwood"];
+//
+const results2 = takeUntil(data2, x => x === ',');
+assertArraysEqual(results2,[ 'I\'ve', 'been', 'to', 'Hollywood' ]);
+
+function test(x){
+  return x < 0
+}
