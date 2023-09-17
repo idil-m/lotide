@@ -1,45 +1,26 @@
-const eqArrays = function (arrayOne, arrayTwo) {
-  let setOne = arrayOne
-  let setTwo = arrayTwo
-  
-  if (setOne.length > setTwo.length || setTwo.length > setOne) {
-    return false
-  }
-  for (let i = 0; i < arrayOne.length; i++) {
+const eqArrays = require('./eqArrays');
+const assertArraysEqual = require('./assertArraysEqual');
 
 
-    if (setTwo[i] !== setOne[i]) {
-      return false
-    }
 
-
-    return true
-  }
-};
-
-
-const assertArraysEqual = function (arrayOne, arrayTwo) {
-
-  if (eqArrays(arrayOne, arrayTwo)) {
-    console.log(`✅✅✅ Assertion Passed:${arrayOne} === ${arrayTwo}`);
-
-  }
-  else {
-    console.log(`🟥🟥🟥 Assertion Failed:${arrayOne} !== ${arrayTwo}`);
+const middle = function (array) {
+  // no middle
+  if( array.length <= 2){
+    return []
+  } 
+  // even
+  if ( array.length  % 2 === 0){
+    midIndex1 = Math.floor(array.length/2)
+    midIndex2 = midIndex1 -1
+    let value1 = array[midIndex1]
+    let value2  = array[midIndex2]
+    return [value2, value1]
+  } 
+  //odd
+  else if ( array.length  % 2 !== 0){
+    midIndex = Math.floor(array.length/2)
+    return [array[midIndex]]
   }
 };
 
-
-//no middle cases
-assertArraysEqual(middle([]),[])
-assertArraysEqual(middle([1]),[])
-assertArraysEqual(middle([1,2]),[])
-
-//odd
-assertArraysEqual(middle([1, 2, 3]), [2])
-assertArraysEqual(middle([1, 2, 3, 4, 5]),[3])
-
-
-//even
-assertArraysEqual(middle([1, 2, 3, 4]), [2, 3])
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4])
+module.exports = middle;
