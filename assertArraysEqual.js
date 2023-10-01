@@ -1,13 +1,11 @@
 const eqArrays = require('./eqArrays');
 
 
-const assertArraysEqual = function (arrayActual, arrayExpected) {
+const assertArraysEqual = function(arrayActual, arrayExpected) {
 
   if (eqArrays(arrayActual, arrayExpected)) {
     console.log(`✅✅✅ Assertion Passed:${arrayActual} === ${arrayExpected}`);
-
-  }
-  else {
+  } else {
     console.log(`🟥🟥🟥 Assertion Failed:${arrayActual} !== ${arrayExpected}`);
   }
 };
