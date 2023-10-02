@@ -1,9 +1,9 @@
 const flatten = function(arr1) {
   let rightArray = [];
-  for (let i = 0; arr1.length; i++) {
+  for (let i = 0; i< arr1.length; i++) {
     let item = arr1[i];
     if (Array.isArray(item)) {
-      for (let j = 0; item.length; j++) {
+      for (let j = 0; j < item.length; j++) {
         let subItem = item[j];
         rightArray.push(subItem);
       }
